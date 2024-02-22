@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "electronics",
     "fashion",
+    "django_jinja",
 ]
 
 MIDDLEWARE = [
@@ -68,19 +69,22 @@ TEMPLATES = [
             ],
         },
     },
-    # {
-    #     "BACKEND": "django.template.backends.django.DjangoTemplates",
-    #     "DIRS": [os.path.join(BASE_DIR, "templates")],
-    #     "APP_DIRS": True,
-    #     "OPTIONS": {
-    #         "context_processors": [
-    #             "django.template.context_processors.debug",
-    #             "django.template.context_processors.request",
-    #             "django.contrib.auth.context_processors.auth",
-    #             "django.contrib.messages.context_processors.messages",
-    #         ],
-    #     },
-    # },
+    {
+        "BACKEND": "django.template.backends.jinja2.Jinja2",
+        "DIRS": [os.path.join(BASE_DIR, "electronics/jinja2")],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "environment": "electronics.jinja2.environment",
+            "autoescape": True,
+            "auto_reload": True,
+            "block_start_string": "{%",
+            "block_end_string": "%}",
+            "variable_start_string": "{{",
+            "variable_end_string": "}}",
+            "comment_start_string": "{#",
+            "comment_end_string": "#}",
+        },
+    },
 ]
 
 WSGI_APPLICATION = "shopcart.wsgi.application"

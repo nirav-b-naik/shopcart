@@ -1,8 +1,9 @@
 {% extends "layout/base.html"%}
-{%load basic_filter%}
 {%block title%}Mobile{%endblock title%}
 
 {%block header%}Electronics Store{%endblock header%}
+
+{% include 'macros.jinja' %}
 
 {%block content%}
 <div>
@@ -21,7 +22,7 @@
         {% for instance in not_offered_form.instances %}
         <tr>
             {% for field in not_offered_form %}
-            <td>{{ instance|getattribute:field.name }}</td>
+            <td>{{ getattribute(instance,field.name) }}</td>
             {% endfor %}
             <td>
                 <div>
@@ -47,7 +48,7 @@
         {% for instance in offered_form.instances %}
         <tr>
             {% for field in offered_form %}
-            <td>{{ instance|getattribute:field.name }}</td>
+            <td>{{ getattribute(instance,field.name) }}</td>
             {% endfor %}
             <td>
                 <div>
