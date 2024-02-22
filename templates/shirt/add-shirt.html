@@ -1,0 +1,34 @@
+{% extends "layout/base.html"%}
+{%block title%}Add Mobile{%endblock title%}
+
+{%block header%}Fashion Store{%endblock header%}
+
+{%block content%}
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit" class="submit-btn">Submit</button>
+</form>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="submit-btn">Submit</button>
+</form>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_div}}
+    <button type="submit" class="submit-btn">Submit</button>
+</form>
+
+<form method="post">
+    {% csrf_token %}
+    <ul>
+        {{form.as_ul}}
+    </ul>
+    <button type="submit" class="submit-btn">Submit</button>
+</form>
+{%endblock content%}

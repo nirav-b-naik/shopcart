@@ -1,0 +1,37 @@
+{% extends "layout/base.html"%}
+{%load basic_filter%}
+{%block title%}Fashion{%endblock title%}
+
+{%block header%}Fashion Store{%endblock header%}
+
+{%block content%}
+<div>
+    <a href="shirt-master/add" class="add-phone-btn">Add-Shirt</a>
+</div>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            {% for field in form %}
+            <th>{{ field.label }}</th>
+            {% endfor %}
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for instance in form.instances %}
+        <tr>
+            {% for field in form %}
+            <td>{{ instance|getattribute:field.name }}</td>
+            {% endfor %}
+            <td>
+                <div>
+                    <a href="shirt-master/{{instance.id}}/edit" class="btn btn-primary">Edit</a>
+                    <a href="shirt-master/{{instance.id}}/delete" class="btn btn-danger">Delete</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock content%}

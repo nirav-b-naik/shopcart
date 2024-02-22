@@ -1,0 +1,33 @@
+{%extends "layout/base.html"%}
+
+{%block title%}Home{%endblock title%}
+
+
+{%block content%}
+<!-- Main Content -->
+<main>
+    <section class="hero">
+        <h2>Welcome to MyStore</h2>
+        <p>Discover amazing products and great deals.</p>
+    </section>
+
+    <section class="featured-products">
+        <h3>Featured Products</h3>
+        <div class="product">
+            <img src="/static/images/shirt.jpg" alt="shirt">
+            <h4>Fashion</h4>
+            <button><a href="/shirt-master">Explore</a></button>
+        </div>
+
+        <div class="product">
+            <img src="/static/images/mobile.jpg" alt="mobile">
+            <h4>Electronics</h4>
+            <button><a href="/mobile-master">Explore</a></button>
+        </div>
+
+        <!-- Add more products as needed -->
+
+    </section>
+</main>
+
+{%endblock content%}

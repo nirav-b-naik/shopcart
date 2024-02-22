@@ -1,0 +1,63 @@
+{% extends "layout/base.html"%}
+{%load basic_filter%}
+{%block title%}Mobile{%endblock title%}
+
+{%block header%}Electronics Store{%endblock header%}
+
+{%block content%}
+<div>
+    <a href="mobile-master/add" class="add-phone-btn">Add-Phone</a>
+</div>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            {% for field in not_offered_form %}
+            <th>{{ field.label }}</th>
+            {% endfor %}
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for instance in not_offered_form.instances %}
+        <tr>
+            {% for field in not_offered_form %}
+            <td>{{ instance|getattribute:field.name }}</td>
+            {% endfor %}
+            <td>
+                <div>
+                    <a href="mobile-master/{{instance.id}}/edit" class="btn btn-primary">Edit</a>
+                    <a href="mobile-master/{{instance.id}}/delete" class="btn btn-danger">Delete</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            {% for field in offered_form %}
+            <th>{{ field.label }}</th>
+            {% endfor %}
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for instance in offered_form.instances %}
+        <tr>
+            {% for field in offered_form %}
+            <td>{{ instance|getattribute:field.name }}</td>
+            {% endfor %}
+            <td>
+                <div>
+                    <a href="mobile-master/{{instance.id}}/edit" class="btn btn-primary">Edit</a>
+                <a href="mobile-master/{{instance.id}}/delete" class="btn btn-danger">Delete</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock content%}
