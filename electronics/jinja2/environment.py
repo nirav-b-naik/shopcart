@@ -1,6 +1,6 @@
 from jinja2 import Environment, PackageLoader
 
-from templatetags.basic_filter import getattribute
+from electronics.templatetags.basic_filter import getattribute
 
 
 def environment(**options):
