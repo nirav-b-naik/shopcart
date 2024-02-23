@@ -7,7 +7,7 @@
 
 {%block content%}
 <div>
-    <a href="mobile-master/add" class="add-phone-btn">Add-Phone</a>
+    <a href="/mobile-master/add" class="add-phone-btn">Add-Phone</a>
 </div>
 <table class="table">
     <thead class="thead-light">
@@ -26,8 +26,8 @@
             {% endfor %}
             <td>
                 <div>
-                    <a href="mobile-master/{{instance.id}}/edit" class="btn btn-primary">Edit</a>
-                    <a href="mobile-master/{{instance.id}}/delete" class="btn btn-danger">Delete</a>
+                    <a href="/mobile-master/{{instance.id}}/edit" class="btn btn-primary">Edit</a>
+                    <a href="/mobile-master/{{instance.id}}/delete" class="btn btn-danger">Delete</a>
                 </div>
             </td>
         </tr>
